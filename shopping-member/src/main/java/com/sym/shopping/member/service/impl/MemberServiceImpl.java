@@ -1,7 +1,7 @@
 package com.sym.shopping.member.service.impl;
 
-import com.sym.shopping.api.member.MemberService;
-import com.sym.shopping.base.entity.UserEntity;
+import com.sym.shopping.api.member.service.MemberService;
+import com.sym.shopping.api.member.entity.User;
 import com.sym.shopping.member.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public UserEntity getUserByUserId(Long userId){
+    public User getUserByUserId(Long userId){
         return userMapper.findByID(userId);
     }
 }

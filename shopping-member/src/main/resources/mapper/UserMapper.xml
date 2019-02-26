@@ -8,7 +8,7 @@
         id,username,password,phone,email,created,updated
     </sql>
 
-    <insert id="insert" parameterType="com.sym.shopping.base.entity.UserEntity" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" parameterType="com.sym.shopping.api.member.entity.User" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO <include refid="BASE_TABLE"/>
         <trim prefix="(" suffix=")" suffixOverrides=",">
             name,password,
@@ -24,7 +24,7 @@
         </trim>
     </insert>
 
-    <select id="findByID" resultType="com.sym.shopping.base.entity.UserEntity">
+    <select id="findByID" resultType="com.sym.shopping.api.member.entity.User">
         select
         <include refid="BASE_COLUMN"/>
         from

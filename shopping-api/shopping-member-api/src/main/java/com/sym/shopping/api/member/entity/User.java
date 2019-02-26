@@ -1,4 +1,4 @@
-package com.sym.shopping.base.entity;
+package com.sym.shopping.api.member.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +14,7 @@ import java.util.Date;
  */
 @Getter
 @Setter
-public class UserEntity {
+public class User {
 
     private Integer id;
     private String username;
