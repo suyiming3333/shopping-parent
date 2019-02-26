@@ -14,5 +14,13 @@
     </modules>
     <artifactId>shopping-api</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sym</groupId>
+            <artifactId>shopping-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

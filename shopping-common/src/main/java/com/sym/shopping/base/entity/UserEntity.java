@@ -1,4 +1,4 @@
-package com.sym.shoppingmybatis.entity;
+package com.sym.shopping.base.entity;
 
 import lombok.Getter;
 import lombok.Setter;

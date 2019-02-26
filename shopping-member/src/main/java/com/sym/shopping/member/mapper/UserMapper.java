@@ -1,6 +1,6 @@
-package com.sym.shoppingmybatis.mapper;
+package com.sym.shopping.member.mapper;
 
-import com.sym.shoppingmybatis.entity.UserEntity;
+import com.sym.shopping.base.entity.UserEntity;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -16,8 +16,9 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserMapper {
 
-    @Select("select  id,username,password,phone,email,created,updated from mb_user where id =#{userId}")
-    UserEntity findByID(@Param("userId") Long userId);
+    //@Select("select  id,username,password,phone,email,created,updated from mb_user where id =#{userId}")
+    //UserEntity findByID(@Param("userId") Long userId);
+    UserEntity findByID(Long userId);
 
     @Insert("INSERT  INTO `mb_user`  (username,password,phone,email,created,updated) VALUES (#{username}, #{password},#{phone},#{email},#{created},#{updated});")
     Integer insertUser(UserEntity userEntity);
