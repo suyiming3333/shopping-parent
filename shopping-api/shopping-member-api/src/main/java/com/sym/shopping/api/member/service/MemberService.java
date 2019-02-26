@@ -8,4 +8,6 @@ public interface MemberService {
     Map<String, Object> testRest();
 
     User getUserByUserId(Long userId);
+
+    int addUser(User user);
 }

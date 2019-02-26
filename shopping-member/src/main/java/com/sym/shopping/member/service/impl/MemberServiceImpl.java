@@ -26,4 +26,9 @@ public class MemberServiceImpl implements MemberService {
     public User getUserByUserId(Long userId){
         return userMapper.findByID(userId);
     }
+
+    @Override
+    public int addUser(User user) {
+        return userMapper.insertUser(user);
+    }
 }
