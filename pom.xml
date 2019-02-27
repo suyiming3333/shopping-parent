@@ -7,7 +7,6 @@
         <module>shopping-api</module>
         <module>shopping-eureka-server</module>
         <module>shopping-member</module>
-        <module>shopping-mybatis</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
