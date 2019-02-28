@@ -31,6 +31,23 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guess
+#    password: guess
+#    publisher-confirms: true
+#    publisher-returns: true
+#    listener:
+#      simple:
+#        acknowledge-mode: manual
+#        concurrency: 1
+#        max-concurrency: 1
+#        prefetch: 1
+#        auto-startup: true
+#    virtual-host: /
+#    template:
+#      mandatory: true
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.sym.shopping.base.entity
