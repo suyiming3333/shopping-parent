@@ -9,15 +9,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class MQMessageSender implements RabbitTemplate.ConfirmCallback,RabbitTemplate.ReturnCallback {
 
+    @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @Autowired
-    public MQMessageSender(RabbitTemplate rabbitTemplate){
-        this.rabbitTemplate = rabbitTemplate;
-        rabbitTemplate.setConfirmCallback(this);
-        rabbitTemplate.setReturnCallback(this);
-        rabbitTemplate.setMandatory(true);
-    }
+//    @Autowired
+//    public MQMessageSender(RabbitTemplate rabbitTemplate){
+//        this.rabbitTemplate = rabbitTemplate;
+//        rabbitTemplate.setConfirmCallback(this);
+//        rabbitTemplate.setReturnCallback(this);
+//        rabbitTemplate.setMandatory(true);
+//    }
 
     public void send(String message) throws Exception {
         CorrelationData correlationData = new CorrelationData();

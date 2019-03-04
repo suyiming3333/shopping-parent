@@ -6,6 +6,7 @@ import com.sym.shopping.member.callback.MsgSendReturnCallback;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,15 +19,15 @@ public class RabbitmqConfig {
         return new Jackson2JsonMessageConverter();
     }
 
-//    @Bean
-//    public MsgSendConfirmCallBack msgSendConfirmCallBack(){
-//        return new MsgSendConfirmCallBack();
-//    }
-//
-//    @Bean
-//    public MsgSendReturnCallback msgSendReturnCallback(){
-//        return new MsgSendReturnCallback();
-//    }
+    @Bean
+    public MsgSendConfirmCallBack msgSendConfirmCallBack(){
+        return new MsgSendConfirmCallBack();
+    }
+
+    @Bean
+    public MsgSendReturnCallback msgSendReturnCallback(){
+        return new MsgSendReturnCallback();
+    }
 
     @Bean
     public RabbitAdmin rabbitAdmin(ConnectionFactory connectionFactory) {
@@ -50,5 +51,14 @@ public class RabbitmqConfig {
         connectionFactory.setPublisherConfirms(true);
         connectionFactory.setPublisherReturns(true);
         return connectionFactory;
+    }
+
+    @Bean
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory){
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        rabbitTemplate.setMandatory(true);
+        rabbitTemplate.setReturnCallback(msgSendReturnCallback());
+        rabbitTemplate.setConfirmCallback(msgSendConfirmCallBack());
+        return rabbitTemplate;
     }
 }
