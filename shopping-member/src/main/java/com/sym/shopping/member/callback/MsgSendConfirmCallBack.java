@@ -3,7 +3,9 @@ package com.sym.shopping.member.callback;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MsgSendConfirmCallBack implements RabbitTemplate.ConfirmCallback {
     @Override
     public void confirm(CorrelationData correlationData, boolean ack, String cause) {

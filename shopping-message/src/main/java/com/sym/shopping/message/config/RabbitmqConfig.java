@@ -1,8 +1,5 @@
-package com.sym.shopping.member.config;
+package com.sym.shopping.message.config;
 
-
-import com.sym.shopping.member.callback.MsgSendConfirmCallBack;
-import com.sym.shopping.member.callback.MsgSendReturnCallback;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
@@ -18,21 +15,9 @@ public class RabbitmqConfig {
         return new Jackson2JsonMessageConverter();
     }
 
-//    @Bean
-//    public MsgSendConfirmCallBack msgSendConfirmCallBack(){
-//        return new MsgSendConfirmCallBack();
-//    }
-//
-//    @Bean
-//    public MsgSendReturnCallback msgSendReturnCallback(){
-//        return new MsgSendReturnCallback();
-//    }
-
     @Bean
     public RabbitAdmin rabbitAdmin(ConnectionFactory connectionFactory) {
         RabbitAdmin rabbitAdmin = new RabbitAdmin(connectionFactory);
-//        rabbitAdmin.getRabbitTemplate().setConfirmCallback(msgSendConfirmCallBack());
-//        rabbitAdmin.getRabbitTemplate().setReturnCallback(msgSendReturnCallback());
         rabbitAdmin.getRabbitTemplate().setMessageConverter(jsonMessageConverter());
         rabbitAdmin.getRabbitTemplate().setMandatory(true);
         return rabbitAdmin;

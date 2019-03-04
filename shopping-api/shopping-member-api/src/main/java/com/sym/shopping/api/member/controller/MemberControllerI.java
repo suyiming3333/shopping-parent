@@ -23,5 +23,5 @@ public interface MemberControllerI {
     ResponseResult getUserById();
 
     @RequestMapping("/doRegister")
-    ResponseResult register(@RequestBody User user, @RequestParam String token);
+    ResponseResult register(@RequestBody User user, @RequestParam String token) throws Exception;
 }
